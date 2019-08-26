@@ -12,9 +12,9 @@ public class BusinessDelegate {
 		this.serviceType = serviceType;
 	}
 	
-	public void doTask() {
+	public String doTask() {
 		businessService = lookUpService.getService(serviceType);
-		businessService.doProcessing();
+		return businessService.doProcessing();
 	}
 
 }

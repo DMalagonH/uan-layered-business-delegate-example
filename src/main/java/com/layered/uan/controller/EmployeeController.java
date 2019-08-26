@@ -14,6 +14,13 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService service;
+	
+	@RequestMapping("/TCS/delegate/{type}")
+	public String delegateExample(@PathVariable String type) {
+		BusinessDelegate delegate = new BusinessDelegate();
+		delegate.setServiceType(type);
+		return "Delegado a: " + delegate.doTask();
+	}
 
 	@RequestMapping("/TCS/employees")
 	public Iterable<Employee> findAllEmployee() {
