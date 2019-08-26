@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.layered.uan.entity.Employee;
 import com.layered.uan.service.EmployeeService;
+import com.layered.uan.delegate.BusinessDelegate;
 
 @RestController
 public class EmployeeController {
@@ -16,6 +17,9 @@ public class EmployeeController {
 
 	@RequestMapping("/TCS/employees")
 	public Iterable<Employee> findAllEmployee() {
+		BusinessDelegate delegate = new BusinessDelegate();
+		delegate.setServiceType("first");
+		delegate.doTask();
 		return service.findAllEmployee();
 	}
 	
